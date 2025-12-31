@@ -5,7 +5,7 @@ cask "mgm" do
     sha256 "INTEL_SHA256_PLACEHOLDER"
     url "https://github.com/13shivam/mgm/releases/download/v#{version}/macOS-Gateway-Monitor-#{version}-Intel.dmg"
   else
-    sha256 "02339a1f14b9948a15da4ac6f8c299a9087e7ef73dc2eadfe3ddb29fc0b0ae37"
+    sha256 "ef0218c5e4c8811e3b11e8004ac84da3e56e568886310c2f2378677632eab59d"
     url "https://github.com/13shivam/mgm/releases/download/v#{version}/macOS-Gateway-Monitor-#{version}-AppleSilicon.dmg"
   end
   
@@ -16,17 +16,24 @@ cask "mgm" do
   app "macOS Gateway Monitor.app"
   
   zap trash: [
+  
     "~/Library/Application Support/macOS Gateway Monitor",
     "~/Library/Preferences/com.enterprise.macos-gateway-monitor.plist",
     "~/Library/Caches/com.enterprise.macos-gateway-monitor",
   ]
   
+end
   caveats <<~EOS
+    ⚠️  This app is not code-signed. On first launch:
+    1. Right-click the app in Applications
+    2. Select "Open" from the menu
+    3. Click "Open" in the security dialog
+    
+    Or: System Settings → Privacy & Security → Click "Open Anyway"
+    
     macOS Gateway Monitor requires admin privileges for full functionality.
-    
-    For optimal experience, run the setup script:
+    Run the setup script for passwordless sudo:
+      cd /Applications/macOS\ Gateway\ Monitor.app/Contents/Resources/app
       ./setup-admin.sh
-    
-    Or grant passwordless sudo access manually.
   EOS
 end
