@@ -3,10 +3,10 @@ cask "mgm" do
   
   if Hardware::CPU.intel?
     sha256 "NOT_BUILT"
-    url "https://github.com/13shivam/mgm/releases/download/v#{version}/macOS-Gateway-Monitor-#{version}-Intel.dmg"
+    url "https://github.com/13shivam/mgm/releases/download/v#{version}/macOS.Gateway.Monitor-#{version}-x64.dmg"
   else
-    sha256 "523465b219ababdde1c2880d9285c730e797d28973900dfa6c73ca9f702fd0be"
-    url "https://github.com/13shivam/mgm/releases/download/v#{version}/macOS-Gateway-Monitor-#{version}-AppleSilicon.dmg"
+    sha256 "e14acad2190a077c30efe1904bb694dcb11fc5abd2a117603c0b825ecdc52135"
+    url "https://github.com/13shivam/mgm/releases/download/v#{version}/macOS.Gateway.Monitor-#{version}-arm64.dmg"
   end
   
   name "macOS Gateway Monitor"
