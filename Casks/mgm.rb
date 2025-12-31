@@ -5,7 +5,7 @@ cask "mgm" do
     sha256 "NOT_BUILT"
     url "https://github.com/13shivam/mgm/releases/download/v#{version}/macOS.Gateway.Monitor-#{version}-x64.dmg"
   else
-    sha256 "e14acad2190a077c30efe1904bb694dcb11fc5abd2a117603c0b825ecdc52135"
+    sha256 "630c45e42f0bddcbd4efde380d2620ede7579eb357a45bca7e10434d0771c04f"
     url "https://github.com/13shivam/mgm/releases/download/v#{version}/macOS.Gateway.Monitor-#{version}-arm64.dmg"
   end
   
@@ -22,16 +22,13 @@ cask "mgm" do
   ]
   
   caveats <<~EOS
-    ⚠️  This app is not code-signed. On first launch:
-    1. Right-click the app in Applications
-    2. Select "Open" from the menu
-    3. Click "Open" in the security dialog
+    ⚠️  If you see "damaged" error, run:
+      sudo xattr -cr "/Applications/macOS Gateway Monitor.app"
     
-    Or: System Settings → Privacy & Security → Click "Open Anyway"
+    Then open the app normally.
     
-    macOS Gateway Monitor requires admin privileges for full functionality.
-    Run the setup script for passwordless sudo:
-      cd /Applications/macOS\ Gateway\ Monitor.app/Contents/Resources/app
+    For admin privileges (full functionality):
+      cd "/Applications/macOS Gateway Monitor.app/Contents/Resources/app"
       ./setup-admin.sh
   EOS
 end
