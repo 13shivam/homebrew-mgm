@@ -2,10 +2,10 @@ cask "mgm" do
   version "0.0.1"
   
   if Hardware::CPU.intel?
-    sha256 "INTEL_SHA256_PLACEHOLDER"
+    sha256 "NOT_BUILT"
     url "https://github.com/13shivam/mgm/releases/download/v#{version}/macOS-Gateway-Monitor-#{version}-Intel.dmg"
   else
-    sha256 "ef0218c5e4c8811e3b11e8004ac84da3e56e568886310c2f2378677632eab59d"
+    sha256 "523465b219ababdde1c2880d9285c730e797d28973900dfa6c73ca9f702fd0be"
     url "https://github.com/13shivam/mgm/releases/download/v#{version}/macOS-Gateway-Monitor-#{version}-AppleSilicon.dmg"
   end
   
@@ -16,13 +16,11 @@ cask "mgm" do
   app "macOS Gateway Monitor.app"
   
   zap trash: [
-  
     "~/Library/Application Support/macOS Gateway Monitor",
     "~/Library/Preferences/com.enterprise.macos-gateway-monitor.plist",
     "~/Library/Caches/com.enterprise.macos-gateway-monitor",
   ]
   
-end
   caveats <<~EOS
     ⚠️  This app is not code-signed. On first launch:
     1. Right-click the app in Applications
