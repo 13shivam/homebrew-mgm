@@ -26,9 +26,5 @@ cask "mgm" do
       sudo xattr -cr "/Applications/macOS Gateway Monitor.app"
     
     Then open the app normally.
-    
-    For admin privileges (full functionality):
-      cd "/Applications/macOS Gateway Monitor.app/Contents/Resources/app"
-      ./setup-admin.sh
   EOS
 end
